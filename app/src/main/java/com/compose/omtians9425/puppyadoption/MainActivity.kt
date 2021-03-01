@@ -13,13 +13,18 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Card
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.compose.omtians9425.puppyadoption.ui.theme.PuppyAdoptionTheme
 import dev.chrisbanes.accompanist.coil.CoilImage
 
@@ -145,7 +150,27 @@ fun PuppyItem(puppy: Puppy) {
                             startY = 300f, endY = 650f
                         )
                     )
+                    .padding(16.dp),
+                verticalArrangement = Arrangement.Bottom,
             ) {
+                Text(
+                    text = puppy.name,
+                    color = Color.White,
+                    fontFamily = FontFamily.Monospace,
+                    fontWeight = FontWeight.W400
+                )
+                Text(
+                    text = puppy.breed,
+                    color = Color.White,
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 10.sp
+                )
+                Text(
+                    text = "${puppy.age}year",
+                    color = Color.White,
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 10.sp
+                )
             }
         }
     }
