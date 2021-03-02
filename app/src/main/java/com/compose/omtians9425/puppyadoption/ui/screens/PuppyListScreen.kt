@@ -20,13 +20,14 @@ import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 import com.compose.omtians9425.puppyadoption.Puppy
 import com.compose.omtians9425.puppyadoption.R
 import com.compose.omtians9425.puppyadoption.Sex
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 @Composable
-fun PuppyListScreen() {
+fun PuppyListScreen(navController: NavController) {
     PuppyList(
         puppies = listOf(
             Puppy(

@@ -1,5 +1,6 @@
 package com.compose.omtians9425.puppyadoption
 
+import PuppyDetailScreen
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -7,6 +8,9 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.compose.omtians9425.puppyadoption.ui.screens.PuppyListScreen
 import com.compose.omtians9425.puppyadoption.ui.theme.PuppyAdoptionTheme
 
@@ -17,7 +21,11 @@ class MainActivity : AppCompatActivity() {
             PuppyAdoptionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    PuppyListScreen()
+                    val controller = rememberNavController()
+                    NavHost(navController = controller, startDestination = "list") {
+                        composable("list") { PuppyListScreen(controller) }
+                        composable("detail") { PuppyDetailScreen(controller) }
+                    }
                 }
             }
         }
@@ -41,6 +49,7 @@ enum class Sex(val rawValue: String) {
 @Composable
 fun DefaultPreview() {
     PuppyAdoptionTheme {
-        PuppyListScreen()
+        val controller = rememberNavController()
+        PuppyListScreen(controller)
     }
 }
