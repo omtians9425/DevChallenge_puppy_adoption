@@ -23,73 +23,83 @@ import dev.chrisbanes.accompanist.coil.CoilImage
 @Composable
 fun PuppyDetailScreen(navController: NavController) {
     Box(contentAlignment = Alignment.TopCenter, modifier = Modifier.fillMaxSize()) {
-        Box(modifier = Modifier.height(250.dp)) {
-            CoilImage(
-                data = puppies.first().imageUrl,
-                contentDescription = puppies.first().name,
-                fadeIn = true,
-                contentScale = ContentScale.Crop,
+        Header(navController)
+        OverviewCard()
+    }
+}
+
+@Composable
+fun Header(navController: NavController) {
+    Box(modifier = Modifier.height(250.dp)) {
+        CoilImage(
+            data = puppies.first().imageUrl,
+            contentDescription = puppies.first().name,
+            fadeIn = true,
+            contentScale = ContentScale.Crop,
+        )
+        IconButton(onClick = { navController.popBackStack() }) {
+            Icon(
+                Icons.Default.ArrowBack,
+                contentDescription = "back",
+                tint = Color.White
             )
-            IconButton(onClick = { navController.popBackStack() }) {
-                Icon(
-                    Icons.Default.ArrowBack,
-                    contentDescription = "back",
-                    tint = Color.White
-                )
-            }
         }
-        Card(
-            elevation = 10.dp,
-            shape = RoundedCornerShape(16.dp),
+    }
+}
+
+@Composable
+fun OverviewCard() {
+    Card(
+        elevation = 10.dp,
+        shape = RoundedCornerShape(16.dp),
+        modifier = Modifier
+            .height(150.dp)
+            .width(300.dp)
+            .offset(y = 200.dp)
+            .fillMaxSize()
+    ) {
+        Column(
             modifier = Modifier
-                .height(150.dp)
-                .width(300.dp)
-                .offset(y = 200.dp)
                 .fillMaxSize()
+                .padding(24.dp),
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(24.dp),
-            ) {
+            Text(
+                text = puppies.first().name,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.W600,
+                fontSize = 25.sp
+            )
+            Spacer(modifier = Modifier.height(16.dp))
+            Text(
+                text = puppies.first().breed,
+                fontFamily = FontFamily.Monospace,
+                fontSize = 15.sp
+            )
+            Row {
                 Text(
-                    text = puppies.first().name,
-                    fontFamily = FontFamily.Monospace,
-                    fontWeight = FontWeight.W600,
-                    fontSize = 25.sp
-                )
-                Spacer(modifier = Modifier.height(16.dp))
-                Text(
-                    text = puppies.first().breed,
+                    text = "${puppies.first().age}year",
                     fontFamily = FontFamily.Monospace,
                     fontSize = 15.sp
                 )
-                Row {
-                    Text(
-                        text = "${puppies.first().age}year",
-                        fontFamily = FontFamily.Monospace,
-                        fontSize = 15.sp
-                    )
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Icon(
-                        painter = painterResource(
-                            id = when (puppies.first().sex) {
-                                Sex.BOY -> R.drawable.ic_male
-                                Sex.GIRL -> R.drawable.ic_female
-                            }
-                        ),
-                        contentDescription = "Sex",
-                        modifier = Modifier
-                            .size(15.dp)
-                            .align(alignment = Alignment.CenterVertically)
-                    )
-                    Spacer(modifier = Modifier.width(4.dp))
-                    Text(
-                        text = puppies.first().sex.rawValue,
-                        fontFamily = FontFamily.Monospace,
-                        fontSize = 15.sp
-                    )
-                }
+                Spacer(modifier = Modifier.width(8.dp))
+                Icon(
+                    painter = painterResource(
+                        id = when (puppies.first().sex) {
+                            Sex.BOY -> R.drawable.ic_male
+                            Sex.GIRL -> R.drawable.ic_female
+                        }
+                    ),
+                    contentDescription = "Sex",
+                    modifier = Modifier
+                        .size(15.dp)
+                        .align(alignment = Alignment.CenterVertically)
+                )
+                Spacer(modifier = Modifier.width(4.dp))
+                Text(
+                    text = puppies.first().sex.rawValue,
+                    fontFamily = FontFamily.Monospace,
+                    fontSize = 15.sp
+                )
             }
         }
     }
