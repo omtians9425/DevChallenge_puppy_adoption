@@ -39,16 +39,18 @@ fun PuppyDetailScreen(puppyId: Int?, navController: NavController) {
             Spacer(modifier = Modifier.height(24.dp))
             Text(
                 text = puppies.single { it.id == puppyId }.description, modifier = Modifier
-                    .height(300.dp)
                     .verticalScroll(
                         rememberScrollState()
                     )
             )
-            Spacer(modifier = Modifier.height(24.dp))
-            FloatingActionButton(onClick = { /*TODO*/ }) {
-                Text(text = "Adopt")
-            }
         }
+        ExtendedFloatingActionButton(
+            text = { Text(text = "Adopt") },
+            onClick = { /*TODO*/ },
+            modifier = Modifier
+                .align(Alignment.BottomCenter)
+                .padding(bottom = 24.dp)
+        )
     }
 }
 
@@ -79,7 +81,6 @@ fun OverviewCard(puppyId: Int) {
         modifier = Modifier
             .height(150.dp)
             .width(300.dp)
-            .fillMaxSize()
     ) {
         Column(
             modifier = Modifier
