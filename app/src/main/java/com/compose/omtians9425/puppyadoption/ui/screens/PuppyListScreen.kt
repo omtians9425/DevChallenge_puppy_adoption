@@ -29,61 +29,8 @@ import com.compose.omtians9425.puppyadoption.R
 import com.compose.omtians9425.puppyadoption.Sex
 import dev.chrisbanes.accompanist.coil.CoilImage
 
-val puppies = listOf(
-    Puppy(
-        name = "Max",
-        breed = "Labrador retriever",
-        age = 1,
-        sex = Sex.BOY,
-        imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsq4yzm0S7Tim6fFga3sphSS7BTSIGjtuIHA&usqp=CAU",
-        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
-                "\n" +
-                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
-    ),
-    Puppy(
-        name = "Maggie",
-        breed = "Labrador retriever",
-        age = 3,
-        sex = Sex.GIRL,
-        imageUrl = "https://www.min-breeder.com/data/handbook/14736/main_14736_88096_detail.jpg",
-        description = "",
-    ),
-    Puppy(
-        name = "Bailey",
-        breed = "Golden retriever",
-        age = 1,
-        sex = Sex.BOY,
-        imageUrl = "https://img.benesse-cms.jp/pet-dog/item/image/normal/resized/resized_b374345f-a774-45a9-8042-0779aba15936.jpg",
-        description = "",
-    ),
-    Puppy(
-        name = "Lola",
-        breed = "Pug",
-        age = 2,
-        sex = Sex.GIRL,
-        imageUrl = "https://besthqwallpapers.com/Uploads/15-8-2017/18667/thumb2-pug-puppy-cute-animals-dogs-decorative-dogs.jpg",
-        description = "",
-    ),
-    Puppy(
-        name = "Coco",
-        breed = "Shih tzu",
-        age = 1,
-        sex = Sex.GIRL,
-        imageUrl = "https://breeder-one.jp/uploads/photo/47995/slide_ad935bd4-fe36-4437-b66b-f90e8eed6ce7.jpeg",
-        description = "",
-    ),
-    Puppy(
-        name = "Rocky",
-        breed = "Doberman",
-        age = 1,
-        sex = Sex.BOY,
-        imageUrl = "https://passerellewan.jp/puppies/manager/upfile/921_351b52b9ec2148.jpg",
-        description = "",
-    ),
-)
-
 @Composable
-fun PuppyListScreen(navController: NavController) {
+fun PuppyListScreen(puppies: List<Puppy>, navController: NavController) {
     PuppyList(
         puppies = puppies, navController = navController
     )
@@ -108,7 +55,7 @@ fun PuppyItem(puppy: Puppy, navController: NavController) {
             .padding(16.dp)
             .width(50.dp)
             .height(200.dp)
-            .clickable { navController.navigate("detail") }
+            .clickable { navController.navigate("detail/${puppy.id}") }
     ) {
         Box {
             CoilImage(
@@ -161,7 +108,9 @@ fun PuppyItem(puppy: Puppy, navController: NavController) {
                         ),
                         contentDescription = "Sex",
                         tint = Color.White,
-                        modifier = Modifier.size(12.dp).align(Alignment.CenterVertically)
+                        modifier = Modifier
+                            .size(12.dp)
+                            .align(Alignment.CenterVertically)
                     )
                     Text(
                         text = puppy.sex.rawValue, color = Color.White,

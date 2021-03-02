@@ -18,15 +18,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.compose.omtians9425.puppyadoption.R
 import com.compose.omtians9425.puppyadoption.Sex
-import com.compose.omtians9425.puppyadoption.ui.screens.puppies
+import com.compose.omtians9425.puppyadoption.puppies
 import dev.chrisbanes.accompanist.coil.CoilImage
 
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
-fun PuppyDetailScreen(navController: NavController) {
+fun PuppyDetailScreen(puppyId: Int?, navController: NavController) {
+    puppyId ?: return
     Box(contentAlignment = Alignment.TopCenter, modifier = Modifier.fillMaxSize()) {
-        Header(navController)
+        Header(puppyId, navController)
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
             modifier = Modifier
@@ -34,9 +35,15 @@ fun PuppyDetailScreen(navController: NavController) {
                 .padding(24.dp)
                 .fillMaxSize()
         ) {
-            OverviewCard()
+            OverviewCard(puppyId)
             Spacer(modifier = Modifier.height(24.dp))
-            Description()
+            Text(
+                text = puppies.single { it.id == puppyId }.description, modifier = Modifier
+                    .height(300.dp)
+                    .verticalScroll(
+                        rememberScrollState()
+                    )
+            )
             Spacer(modifier = Modifier.height(24.dp))
             FloatingActionButton(onClick = { /*TODO*/ }) {
                 Text(text = "Adopt")
@@ -46,10 +53,10 @@ fun PuppyDetailScreen(navController: NavController) {
 }
 
 @Composable
-fun Header(navController: NavController) {
+fun Header(puppyId: Int, navController: NavController) {
     Box(modifier = Modifier.height(250.dp)) {
         CoilImage(
-            data = puppies.first().imageUrl,
+            data = puppies.single { it.id == puppyId }.imageUrl,
             contentDescription = puppies.first().name,
             fadeIn = true,
             contentScale = ContentScale.Crop,
@@ -65,7 +72,7 @@ fun Header(navController: NavController) {
 }
 
 @Composable
-fun OverviewCard() {
+fun OverviewCard(puppyId: Int) {
     Card(
         elevation = 10.dp,
         shape = RoundedCornerShape(16.dp),
@@ -80,27 +87,27 @@ fun OverviewCard() {
                 .padding(24.dp),
         ) {
             Text(
-                text = puppies.first().name,
+                text = puppies.single { it.id == puppyId }.name,
                 fontFamily = FontFamily.Monospace,
                 fontWeight = FontWeight.W600,
                 fontSize = 25.sp
             )
             Spacer(modifier = Modifier.height(16.dp))
             Text(
-                text = puppies.first().breed,
+                text = puppies.single { it.id == puppyId }.breed,
                 fontFamily = FontFamily.Monospace,
                 fontSize = 15.sp
             )
             Row {
                 Text(
-                    text = "${puppies.first().age}year",
+                    text = "${puppies.single { it.id == puppyId }.age}year",
                     fontFamily = FontFamily.Monospace,
                     fontSize = 15.sp
                 )
                 Spacer(modifier = Modifier.width(8.dp))
                 Icon(
                     painter = painterResource(
-                        id = when (puppies.first().sex) {
+                        id = when (puppies.single { it.id == puppyId }.sex) {
                             Sex.BOY -> R.drawable.ic_male
                             Sex.GIRL -> R.drawable.ic_female
                         }
@@ -112,22 +119,11 @@ fun OverviewCard() {
                 )
                 Spacer(modifier = Modifier.width(4.dp))
                 Text(
-                    text = puppies.first().sex.rawValue,
+                    text = puppies.single { it.id == puppyId }.sex.rawValue,
                     fontFamily = FontFamily.Monospace,
                     fontSize = 15.sp
                 )
             }
         }
     }
-}
-
-@Composable
-fun Description() {
-    Text(
-        text = puppies.first().description, modifier = Modifier
-            .height(300.dp)
-            .verticalScroll(
-                rememberScrollState()
-            )
-    )
 }
