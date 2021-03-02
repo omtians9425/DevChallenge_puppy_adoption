@@ -12,6 +12,7 @@ import androidx.compose.material.Card
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -158,7 +159,7 @@ fun PuppyItem(puppy: Puppy, navController: NavController) {
                         ),
                         contentDescription = "Sex",
                         tint = Color.White,
-                        modifier = Modifier.size(12.dp)
+                        modifier = Modifier.size(12.dp).align(Alignment.CenterVertically)
                     )
                     Text(
                         text = puppy.sex.rawValue, color = Color.White,
