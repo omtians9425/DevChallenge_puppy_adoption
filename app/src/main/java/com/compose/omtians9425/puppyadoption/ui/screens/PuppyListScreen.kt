@@ -2,6 +2,7 @@ package com.compose.omtians9425.puppyadoption.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
@@ -21,6 +22,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.navigation.compose.navigate
 import com.compose.omtians9425.puppyadoption.Puppy
 import com.compose.omtians9425.puppyadoption.R
 import com.compose.omtians9425.puppyadoption.Sex
@@ -78,22 +80,22 @@ fun PuppyListScreen(navController: NavController) {
                 imageUrl = "https://passerellewan.jp/puppies/manager/upfile/921_351b52b9ec2148.jpg",
                 description = "",
             ),
-        )
+        ), navController = navController
     )
 }
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun PuppyList(puppies: List<Puppy>) {
+fun PuppyList(puppies: List<Puppy>, navController: NavController) {
     LazyVerticalGrid(cells = GridCells.Fixed(2), contentPadding = PaddingValues(16.dp)) {
         items(puppies) { puppy ->
-            PuppyItem(puppy = puppy)
+            PuppyItem(puppy = puppy, navController = navController)
         }
     }
 }
 
 @Composable
-fun PuppyItem(puppy: Puppy) {
+fun PuppyItem(puppy: Puppy, navController: NavController) {
     Card(
         elevation = 10.dp,
         shape = RoundedCornerShape(8.dp),
@@ -101,6 +103,7 @@ fun PuppyItem(puppy: Puppy) {
             .padding(16.dp)
             .width(50.dp)
             .height(200.dp)
+            .clickable { navController.navigate("detail") }
     ) {
         Box {
             CoilImage(
