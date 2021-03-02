@@ -36,7 +36,9 @@ val puppies = listOf(
         age = 1,
         sex = Sex.BOY,
         imageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsq4yzm0S7Tim6fFga3sphSS7BTSIGjtuIHA&usqp=CAU",
-        description = "",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
     ),
     Puppy(
         name = "Maggie",

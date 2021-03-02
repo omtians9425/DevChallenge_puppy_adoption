@@ -1,9 +1,12 @@
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.rememberScrollableState
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,12 +22,23 @@ import com.compose.omtians9425.puppyadoption.Sex
 import com.compose.omtians9425.puppyadoption.ui.screens.puppies
 import dev.chrisbanes.accompanist.coil.CoilImage
 
+
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun PuppyDetailScreen(navController: NavController) {
     Box(contentAlignment = Alignment.TopCenter, modifier = Modifier.fillMaxSize()) {
         Header(navController)
-        OverviewCard()
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier
+                .offset(y = 200.dp)
+                .padding(24.dp)
+                .fillMaxSize()
+        ) {
+            OverviewCard()
+            Spacer(modifier = Modifier.height(16.dp))
+            Description()
+        }
     }
 }
 
@@ -55,7 +69,6 @@ fun OverviewCard() {
         modifier = Modifier
             .height(150.dp)
             .width(300.dp)
-            .offset(y = 200.dp)
             .fillMaxSize()
     ) {
         Column(
@@ -103,4 +116,17 @@ fun OverviewCard() {
             }
         }
     }
+}
+
+@Composable
+fun Description() {
+    var offset by remember { mutableStateOf(0f) }
+
+    Text(text = puppies.first().description, modifier = Modifier.scrollable(
+        orientation = Orientation.Vertical,
+        state = rememberScrollableState { delta ->
+            offset += delta
+            delta
+        }
+    ))
 }
