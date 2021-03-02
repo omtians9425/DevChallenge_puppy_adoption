@@ -10,19 +10,16 @@ import androidx.compose.foundation.lazy.GridCells
 import androidx.compose.foundation.lazy.LazyVerticalGrid
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Card
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.compose.omtians9425.puppyadoption.ui.theme.PuppyAdoptionTheme
@@ -165,16 +162,36 @@ fun PuppyItem(puppy: Puppy) {
                     fontFamily = FontFamily.Monospace,
                     fontSize = 10.sp
                 )
-                Text(
-                    text = "${puppy.age}year",
-                    color = Color.White,
-                    fontFamily = FontFamily.Monospace,
-                    fontSize = 10.sp
-                )
+                Row {
+                    Text(
+                        text = "${puppy.age}year",
+                        color = Color.White,
+                        fontFamily = FontFamily.Monospace,
+                        fontSize = 10.sp
+                    )
+                    Spacer(modifier = Modifier.width(8.dp))
+                    Icon(
+                        painter = painterResource(
+                            id = when (puppy.sex) {
+                                Sex.BOY -> R.drawable.ic_male
+                                Sex.GIRL -> R.drawable.ic_female
+                            }
+                        ),
+                        contentDescription = "Sex",
+                        tint = Color.White,
+                        modifier = Modifier.size(12.dp)
+                    )
+                    Text(
+                        text = puppy.sex.rawValue, color = Color.White,
+                        fontFamily = FontFamily.Monospace,
+                        fontSize = 10.sp
+                    )
+                }
             }
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
