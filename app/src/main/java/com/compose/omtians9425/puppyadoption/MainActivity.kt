@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             PuppyAdoptionTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    PuppyListScreen("Android")
+                    PuppyListScreen()
                 }
             }
         }
@@ -53,7 +53,7 @@ enum class Sex(val rawValue: String) {
 }
 
 @Composable
-fun PuppyListScreen(name: String) {
+fun PuppyListScreen() {
     PuppyList(
         puppies = listOf(
             Puppy(
@@ -197,6 +197,6 @@ fun PuppyItem(puppy: Puppy) {
 @Composable
 fun DefaultPreview() {
     PuppyAdoptionTheme {
-        PuppyListScreen("Android")
+        PuppyListScreen()
     }
 }
