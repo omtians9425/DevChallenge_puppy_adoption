@@ -76,7 +76,9 @@ val puppies = listOf(
         age = 3,
         sex = Sex.GIRL,
         imageUrl = "https://www.min-breeder.com/data/handbook/14736/main_14736_88096_detail.jpg",
-        description = "",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
     ),
     Puppy(
         id = 3,
@@ -85,7 +87,9 @@ val puppies = listOf(
         age = 1,
         sex = Sex.BOY,
         imageUrl = "https://img.benesse-cms.jp/pet-dog/item/image/normal/resized/resized_b374345f-a774-45a9-8042-0779aba15936.jpg",
-        description = "",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
     ),
     Puppy(
         id = 4,
@@ -94,7 +98,9 @@ val puppies = listOf(
         age = 2,
         sex = Sex.GIRL,
         imageUrl = "https://besthqwallpapers.com/Uploads/15-8-2017/18667/thumb2-pug-puppy-cute-animals-dogs-decorative-dogs.jpg",
-        description = "",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
     ),
     Puppy(
         id = 5,
@@ -103,7 +109,9 @@ val puppies = listOf(
         age = 1,
         sex = Sex.GIRL,
         imageUrl = "https://breeder-one.jp/uploads/photo/47995/slide_ad935bd4-fe36-4437-b66b-f90e8eed6ce7.jpeg",
-        description = "",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
     ),
     Puppy(
         id = 6,
@@ -112,7 +120,31 @@ val puppies = listOf(
         age = 1,
         sex = Sex.BOY,
         imageUrl = "https://passerellewan.jp/puppies/manager/upfile/921_351b52b9ec2148.jpg",
-        description = "",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
+    ),
+    Puppy(
+        id = 7,
+        name = "Oscar",
+        breed = "Golden retriever",
+        age = 1,
+        sex = Sex.BOY,
+        imageUrl = "https://img.benesse-cms.jp/pet-dog/item/image/normal/resized/resized_b374345f-a774-45a9-8042-0779aba15936.jpg",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
+    ),
+    Puppy(
+        id = 8,
+        name = "Mia",
+        breed = "Pug",
+        age = 2,
+        sex = Sex.GIRL,
+        imageUrl = "https://besthqwallpapers.com/Uploads/15-8-2017/18667/thumb2-pug-puppy-cute-animals-dogs-decorative-dogs.jpg",
+        description = "The Labrador Retriever, often abbreviated to Labrador, is a breed of retriever-gun dog from the United Kingdom that was developed from imported Canadian fishing dogs. The Labrador is one of the most popular dog breeds in a number of countries in the world, particularly in the Western world.\n" +
+                "\n" +
+                "A favourite disability assistance breed in many countries, Labradors are frequently trained to aid those with blindness or autism, act as a therapy dog, or perform screening and detection work for law enforcement and other official agencies. The breed is best known for their obedience, loyalty, and playful composure. Additionally, they are prized as sporting and hunting dogs. Ancestors include a breed used in Newfoundland as fishing dogs, that would help in bringing in the fishing nets and recapture escaped fish.",
     ),
 )
 
