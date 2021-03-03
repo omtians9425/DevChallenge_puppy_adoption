@@ -1,3 +1,4 @@
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -8,6 +9,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -56,12 +58,22 @@ fun PuppyDetailScreen(puppyId: Int?, navController: NavController) {
 
 @Composable
 fun Header(puppyId: Int, navController: NavController) {
-    Box(modifier = Modifier.height(250.dp)) {
+    Box(
+        modifier = Modifier.height(250.dp)
+    ) {
         CoilImage(
             data = puppies.single { it.id == puppyId }.imageUrl,
             contentDescription = puppies.first().name,
             fadeIn = true,
             contentScale = ContentScale.Crop,
+        )
+        Box(
+            modifier = Modifier.fillMaxSize().background(
+                Brush.verticalGradient(
+                    colors = listOf(Color.DarkGray, Color.Transparent),
+                    startY = -20.0f, endY = 150.0f
+                )
+            )
         )
         IconButton(onClick = { navController.popBackStack() }) {
             Icon(
